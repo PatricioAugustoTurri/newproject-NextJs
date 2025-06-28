@@ -19,7 +19,6 @@ export async function GET(request, { params }) {
         }
       );
     }
-    console.log(res);
     return NextResponse.json(res[0]);
   } catch (error) {
     return NextResponse.json({ message: error.message }, { status: 500 });

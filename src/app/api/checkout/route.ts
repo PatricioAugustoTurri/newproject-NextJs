@@ -2,7 +2,6 @@ import { FotoTypes } from "@/types/type-fotos";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
-console.log(process.env.STRIPE_SECRET_KEY);
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 
 export async function POST(request: Request) {
@@ -17,6 +16,10 @@ export async function POST(request: Request) {
   const session = await stripe.checkout.sessions.create({
     success_url: "http://localhost:3000/success",
     cancel_url: "http://localhost:3000/error",
+    shipping_address_collection: {
+      allowed_countries: ["IT"],
+    },
+    phone_number_collection: { enabled: true },
     line_items: [
       ...items.map((item: FotoTypes) => ({
         price_data: {
@@ -60,6 +63,14 @@ export async function POST(request: Request) {
         quantity: 1,
       },
     ],
+    metadata: {
+      products: items
+        .map(
+          (item: FotoTypes) =>
+            `id:${item.foto_id}, nombre:${item.name}, cant:${item.cant}`
+        )
+        .join("|"),
+    },
     mode: "payment",
   });
 

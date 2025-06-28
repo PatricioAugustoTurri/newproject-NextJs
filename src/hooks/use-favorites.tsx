@@ -1,6 +1,6 @@
+import { FotoTypes } from "@/types/type-fotos";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
-import FotoTypes from "../types/type-fotos";
 
 interface FavoritesStore {
   favorite: FotoTypes[];
@@ -16,7 +16,7 @@ const useFavorites = create(
 
       addFavorite: (data: FotoTypes) => {
         const current = get().favorite;
-        const existing = current.find((item) => item.id === data.id);
+        const existing = current.find((item) => item.foto_id === data.foto_id);
         if (existing) {
           return;
         }
@@ -25,7 +25,9 @@ const useFavorites = create(
 
       removeFavorite: (data: FotoTypes) => {
         set({
-          favorite: [...get().favorite.filter((item) => item.id !== data.id)],
+          favorite: [
+            ...get().favorite.filter((item) => item.foto_id !== data.foto_id),
+          ],
         });
       },
 
