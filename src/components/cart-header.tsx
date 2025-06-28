@@ -18,7 +18,7 @@ function Cart() {
           size={30}
           onClick={() => router.push("/cart")}
         />
-        {items.length > 0 && <span className="text-xs">{cantTotal}</span>}
+        {items.length > 0 && <p className="text-xs">{cantTotal}</p>}
       </div>
       <div className="flex items-center gap-0.5 hover:bg-gray-100 hover:text-gray-700 hover:rounded-full p-2 text-gray-500 hover:shadow-md hover:shadow-black transition-all duration-300 ease-in-out cursor-pointer">
         <Heart

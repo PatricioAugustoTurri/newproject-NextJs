@@ -1,6 +1,7 @@
+import { FotoTypes } from "./type-fotos";
+
 export type Response = {
   loading: boolean;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  products: any;
+  fotos: FotoTypes[];
   error: string;
 };

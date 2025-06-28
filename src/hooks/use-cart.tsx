@@ -1,11 +1,11 @@
-import { ProductType } from "@/types/product";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
+import { FotoTypes } from "../types/type-fotos";
 
 interface CartStore {
-  items: ProductType[];
-  addItem: (item: ProductType) => void;
-  removeItem: (item: ProductType) => void;
+  items: FotoTypes[];
+  addItem: (item: FotoTypes) => void;
+  removeItem: (item: FotoTypes) => void;
   clear: () => void;
 }
 
@@ -14,9 +14,11 @@ const useCart = create(
     (set, get) => ({
       items: [],
 
-      addItem: (data: ProductType) => {
+      addItem: (data: FotoTypes) => {
         const currentItems = get().items;
-        const existingItem = currentItems.find((item) => item.id === data.id);
+        const existingItem = currentItems.find(
+          (item) => item.foto_id === data.foto_id
+        );
 
         if (existingItem) {
           existingItem.cant = existingItem.cant + data.cant;
@@ -25,8 +27,12 @@ const useCart = create(
         }
         set({ items: [...currentItems, data] });
       },
-      removeItem: (data: ProductType) => {
-        set({ items: [...get().items.filter((item) => item.id !== data.id)] });
+      removeItem: (data: FotoTypes) => {
+        set({
+          items: [
+            ...get().items.filter((item) => item.foto_id !== data.foto_id),
+          ],
+        });
       },
 
       clear: () => {

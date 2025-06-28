@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import useCart from "@/hooks/use-cart";
-import { ProductType } from "@/types/product";
+import { FotoTypes } from "@/types/type-fotos";
 import { Euro, X } from "lucide-react";
 import { Oi } from "next/font/google";
 import { useRouter } from "next/navigation";
@@ -18,7 +18,7 @@ function CartPage() {
   const { items, clear, removeItem } = useCart();
   const router = useRouter();
 
-  const handleCheckout = async (items: ProductType[]) => {
+  const handleCheckout = async (items: FotoTypes[]) => {
     const res = await fetch("/api/checkout", {
       method: "POST",
       body: JSON.stringify({ items }),
@@ -51,18 +51,17 @@ function CartPage() {
         </div>
       ) : (
         <div className="mt-16 bg-slate-50 rounded-4xl p-4">
-          {items.map((item) => {
+          {items.map((item: FotoTypes) => {
             return (
-              <div className="flex flex-col" key={item.id}>
+              <div className="flex flex-col" key={item.foto_id}>
                 <div className="grid grid-cols-3 md:grid-cols-6 items-center content-center gap-2">
-                  <h1 className="text-xl font-bold">{item.title}</h1>
+                  <h1 className="text-xl font-bold">{item.name}</h1>
                   <p className="flex items-center text-base gap-1 text-center">
-                    Precio: <Euro size={15} />
-                    {item.price}
+                    Precio: <Euro size={15} />{item.price}
                   </p>
                   <img
-                    src={item.images[0]}
-                    alt={item.title}
+                    src={item.image}
+                    alt={item.name}
                     className="w-16 h-16 object-cover rounded-full"
                   />
                   <p>Cant: {item.cant}</p>

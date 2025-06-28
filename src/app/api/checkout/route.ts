@@ -1,3 +1,4 @@
+import { FotoTypes } from "@/types/type-fotos";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
@@ -7,19 +8,22 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
 export async function POST(request: Request) {
   const { items } = await request.json();
   const shipping = 6;
-  const subtotal = items.reduce((acc, item) => acc + item.price * item.cant, 0);
+  const subtotal = items.reduce(
+    (acc: number, item: FotoTypes) => acc + item.price * item.cant,
+    0
+  );
   const total = subtotal + 2 + shipping;
   const tax = total * 0.04;
   const session = await stripe.checkout.sessions.create({
     success_url: "http://localhost:3000/success",
     cancel_url: "http://localhost:3000/error",
     line_items: [
-      ...items.map((item) => ({
+      ...items.map((item: FotoTypes) => ({
         price_data: {
           currency: "eur",
           product_data: {
-            name: item.title,
-            images: [item.images[0]],
+            name: item.name,
+            images: [item.image],
           },
           unit_amount: item.price * 100,
         },

@@ -1,11 +1,11 @@
-import { ProductType } from "@/types/product";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
+import FotoTypes from "../types/type-fotos";
 
 interface FavoritesStore {
-  favorite: ProductType[];
-  addFavorite: (item: ProductType) => void;
-  removeFavorite: (item: ProductType) => void;
+  favorite: FotoTypes[];
+  addFavorite: (item: FotoTypes) => void;
+  removeFavorite: (item: FotoTypes) => void;
   clear: () => void;
 }
 
@@ -14,7 +14,7 @@ const useFavorites = create(
     (set, get) => ({
       favorite: [],
 
-      addFavorite: (data: ProductType) => {
+      addFavorite: (data: FotoTypes) => {
         const current = get().favorite;
         const existing = current.find((item) => item.id === data.id);
         if (existing) {
@@ -23,7 +23,7 @@ const useFavorites = create(
         set({ favorite: [...current, data] });
       },
 
-      removeFavorite: (data: ProductType) => {
+      removeFavorite: (data: FotoTypes) => {
         set({
           favorite: [...get().favorite.filter((item) => item.id !== data.id)],
         });

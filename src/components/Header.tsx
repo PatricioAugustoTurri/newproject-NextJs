@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Cart from "./cart-header";
 import Navbar from "./navbar-header";
-
+import NavbarMovil from "./navbar-movil";
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -22,11 +22,17 @@ function Header() {
       }`}
     >
       <div className="flex lg:px-28 md:px-16 px-8 items-center justify-between">
-        <img src={"/favicon.ico"} alt="logo" className="w-20 h-20 md:w-40 md:h-40" />
-        <div className="md:block hidden">
+        <div className="block lg:hidden">
+          <NavbarMovil />
+        </div>
+        <img
+          src={"/favicon.ico"}
+          alt="logo"
+          className="w-20 h-20 md:w-40 md:h-40"
+        />
+        <div className="lg:block hidden">
           <Navbar />
         </div>
-        
         <Cart />
       </div>
     </header>
