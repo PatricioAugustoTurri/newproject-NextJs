@@ -7,4 +7,6 @@ export type FotoTypes = {
     cant: number;
     price: number;
     size: string;
+    category_name: string;
+
 }

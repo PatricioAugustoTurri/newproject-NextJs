@@ -1,7 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 function AboutPage() {
   return (
-    <div>
-      <h1>About Page</h1>
+    <div className="flex flex-col">
+      <img src="/R0000371.JPG" alt="foto" className="aspect-video object-cover shadow-md rounded-lg" />
     </div>
   );
 }

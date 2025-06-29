@@ -1,5 +1,5 @@
 "use client";
-import { Menu } from "lucide-react";
+import { ArrowBigLeft, ArrowBigRight, Menu } from "lucide-react";
 import { Oi } from "next/font/google";
 import Link from "next/link";
 import { useState } from "react";
@@ -11,7 +11,8 @@ const oi = Oi({
 });
 
 function NavbarMovil() {
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
+  const [shopMenuOpen, setShopMenuOpen] = useState<boolean>(false);
 
   return (
     <div>
@@ -37,15 +38,76 @@ function NavbarMovil() {
           >
             Home
           </Link>
-          <Link
-            href={"/shop"}
-            className={`hover:font-bold text-xl text-black ${oi.className}`}
+          <div
+            className="flex items-center justify-between cursor-pointer"
             onClick={() => {
-              setDrawerOpen(false);
+              setShopMenuOpen(true);
             }}
           >
-            Shop
-          </Link>
+            <p className={`hover:font-bold text-xl text-black ${oi.className}`}>
+              Shop
+            </p>
+            <ArrowBigRight size={40} strokeWidth={1} />
+          </div>
+          <div
+            className={`fixed top-0 left-0 bg-white shadow-md transform transition-transform duration-500 ease-in-out z-40 h-full w-64
+    ${shopMenuOpen ? "translate-x-0" : "-translate-x-full"}`}
+          >
+            <div className="flex flex-col py-4 px-10 gap-4">
+              <ArrowBigLeft
+                size={40}
+                strokeWidth={1}
+                className="cursor-pointer"
+              />
+              <ul className={`mt-4 space-y-4 ${oi.className}`}>
+                <li>
+                  <Link
+                    href="/category/1"
+                    onClick={() => {
+                      setShopMenuOpen(false);
+                      setDrawerOpen(false);
+                    }}
+                  >
+                    Retratos
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/category/2"
+                    onClick={() => {
+                      setShopMenuOpen(false);
+                      setDrawerOpen(false);
+                    }}
+                  >
+                    Paisajes
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/category/3"
+                    onClick={() => {
+                      setShopMenuOpen(false);
+                      setDrawerOpen(false);
+                    }}
+                  >
+                    Ciudad
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/category/4"
+                    onClick={() => {
+                      setShopMenuOpen(false);
+                      setDrawerOpen(false);
+                    }}
+                  >
+                    Lugares históricos
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+
           <Link
             href={"/about"}
             className={`hover:font-bold text-xl text-black ${oi.className}`}
@@ -71,6 +133,7 @@ function NavbarMovil() {
           className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
           onClick={() => {
             setDrawerOpen(false);
+            setShopMenuOpen(false);
           }}
         ></div>
       )}

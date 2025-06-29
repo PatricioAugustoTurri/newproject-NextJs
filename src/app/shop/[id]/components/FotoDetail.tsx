@@ -18,7 +18,7 @@ function FotoDetail({ fotosDetalles }) {
           <img
             src={fotosDetalles.image}
             alt={fotosDetalles.name}
-            className="aspect-square object-cover rounded-lg w-auto h-auto"
+            className="aspect-auto object-cover rounded-lg w-auto h-auto shadow-md"
           />
           <CantMobile fotosDetalles={fotosDetalles} />
         </div>

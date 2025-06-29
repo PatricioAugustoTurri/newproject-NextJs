@@ -18,31 +18,27 @@ function GetFotos({ fotosFinales }) {
     <div className="flex flex-col gap-10">
       <h1 className={`${oi.className} text-2xl`}>Todos los productos</h1>
       {/* {loading && <div>Cargando...</div>} */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {fotosFinales.map((fotos: FotoTypes) => {
           return (
-            <div
+           <div
               key={fotos.foto_id}
-              className="shadow-md rounded-lg p-4 flex flex-col gap-4"
+              className="relative hover:scale-105 transition duration-700 ease-in-out shadow-md flex flex-col items-center justify-center group"
             >
-              <h1 className="text-lg font-bold items-center justify-start flex">
-                {fotos.name}
-              </h1>
               <img
                 src={fotos.image}
                 alt={fotos.name}
-                className="rounded-lg hover:scale-105 transition-all duration-900 ease-in-out cursor-pointer object-cover aspect-square"
-                onClick={() => router.push(`/shop/${fotos.foto_id}`)}
+                className="aspect-square w-full h-full object-cover rounded-md cursor-pointer"
+                onClick={() => {
+                  router.push("/shop/" + fotos.foto_id);
+                }}
               />
-              <div className="flex items-center justify-between mb-2 px-2 bg-slate-100 w-full rounded-2xl">
-                <Heart
-                  className="hover:bg-gray-100 hover:text-gray-700 hover:rounded-full p-2 text-gray-500 hover:shadow-md hover:shadow-black transition-all duration-700 ease-in-out cursor-pointer hover:scale-105"
-                  size={40}
-                  onClick={() => {
-                    addFavorite(fotos);
-                  }}
-                />
-              </div>
+              <Heart
+                strokeWidth={3}
+                size={50}
+                className="absolute bottom-10 opacity-0 group-hover:opacity-100 duration-700 ease-in-out hover:bg-gray-100 hover:text-gray-700 hover:rounded-full p-2 text-white hover:shadow-md hover:shadow-black transition-all cursor-pointer"
+                onClick={() => addFavorite(fotos)}
+              />
             </div>
           );
         })}

@@ -16,6 +16,7 @@ export async function GET() {
     );
   }
 }
+
 export function POST() {
   return NextResponse.json("Creando foto");
 }
