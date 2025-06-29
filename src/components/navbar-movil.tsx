@@ -59,7 +59,7 @@ function NavbarMovil() {
                 strokeWidth={1}
                 className="cursor-pointer"
               />
-              <ul className={`mt-4 space-y-4 ${oi.className}`}>
+              <ul className={`mt-4 space-y-4 ${oi.className} text-base`}>
                 <li>
                   <Link
                     href="/category/1"
@@ -107,7 +107,6 @@ function NavbarMovil() {
               </ul>
             </div>
           </div>
-
           <Link
             href={"/about"}
             className={`hover:font-bold text-xl text-black ${oi.className}`}
