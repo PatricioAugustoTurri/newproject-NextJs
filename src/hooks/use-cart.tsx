@@ -16,13 +16,10 @@ const useCart = create(
 
       addItem: (data: FotoTypes) => {
         const currentItems = get().items;
-        const existingItem = currentItems.find(
-          (item) => item.foto_id === data.foto_id
-        );
-
+        const existingItem = currentItems.find((item: FotoTypes) => {
+          return item.id_fotoPedido === data.id_fotoPedido;
+        });
         if (existingItem) {
-          existingItem.cant = existingItem.cant + data.cant;
-          set({ items: currentItems });
           return;
         }
         set({ items: [...currentItems, data] });
@@ -30,7 +27,9 @@ const useCart = create(
       removeItem: (data: FotoTypes) => {
         set({
           items: [
-            ...get().items.filter((item) => item.foto_id !== data.foto_id),
+            ...get().items.filter(
+              (item) => item.id_fotoPedido !== data.id_fotoPedido
+            ),
           ],
         });
       },

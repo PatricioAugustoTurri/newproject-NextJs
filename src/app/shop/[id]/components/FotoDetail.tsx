@@ -1,26 +1,31 @@
 /* eslint-disable @next/next/no-img-element */
 import { Separator } from "@/components/ui/separator";
-import CantMobile from "./CantMobile";
 import CantWindow from "./CantWindow";
+import { Oi } from "next/font/google";
+import Barra from "./Barra";
+const oi = Oi({
+  variable: "--font-oi",
+  weight: ["400"],
+  subsets: ["latin"],
+});
 
 function FotoDetail({ fotosDetalles }) {
   return (
-    <div className="gap-10 flex-col md:flex-row">
-      <div className="flex-col md:flex-row flex gap-10">
+    <div>
+      <div className="flex flex-col">
+        <h1 className={`${oi.className} text-3xl`}>{fotosDetalles.name}</h1>
+        <Barra fotosDetalles={fotosDetalles} />
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+        <img
+          src={fotosDetalles.image}
+          alt={fotosDetalles.name}
+          className="aspect-auto object-cover rounded-lg shadow-md"
+        />
         <div className="flex flex-col gap-4">
-          <div className="text-4xl font-bold">{fotosDetalles.name}</div>
-          <Separator />
           <div>{fotosDetalles.description}</div>
-          <Separator className="md:block hidden" />
+          <Separator className="mt-1" />
           <CantWindow fotosDetalles={fotosDetalles} />
-        </div>
-        <div>
-          <img
-            src={fotosDetalles.image}
-            alt={fotosDetalles.name}
-            className="aspect-auto object-cover rounded-lg w-auto h-auto shadow-md"
-          />
-          <CantMobile fotosDetalles={fotosDetalles} />
         </div>
       </div>
     </div>

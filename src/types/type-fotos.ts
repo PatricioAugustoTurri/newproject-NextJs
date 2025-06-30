@@ -8,5 +8,5 @@ export type FotoTypes = {
     price: number;
     size: string;
     category_name: string;
-
+    id_fotoPedido: string;
 }
