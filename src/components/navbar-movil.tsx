@@ -58,6 +58,7 @@ function NavbarMovil() {
                 size={40}
                 strokeWidth={1}
                 className="cursor-pointer"
+                onClick={()=>{setShopMenuOpen(false)}}
               />
               <ul className={`mt-4 space-y-4 ${oi.className} text-base`}>
                 <li>

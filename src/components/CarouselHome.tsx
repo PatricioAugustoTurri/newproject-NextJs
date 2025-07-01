@@ -10,7 +10,7 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 function CarouselHome() {
   return (
-    <Carousel className="w-full" plugins={[Autoplay({ delay: 3000 })]}>
+    <Carousel className="w-full h-auto" plugins={[Autoplay({ delay: 3000 })]}>
       <CarouselContent>
         <CarouselItem>
           <img src="/11.JPG" alt="foto" className="aspect-video object-cover" />
@@ -19,13 +19,13 @@ function CarouselHome() {
           <img src="/35.JPG" alt="foto" className="aspect-video object-cover" />
         </CarouselItem>
         <CarouselItem>
-          <img src="/1.JPG" alt="foto" className="aspect-video object-cover" />
-        </CarouselItem>
-        <CarouselItem>
           <img src="/10.JPG" alt="foto" className="aspect-video object-cover" />
         </CarouselItem>
         <CarouselItem>
-          <img src="/3.JPG" alt="foto" className="aspect-video object-cover"/>
+          <img src="/37.JPG" alt="foto" className="aspect-video object-cover" />
+        </CarouselItem>
+        <CarouselItem>
+          <img src="/3.JPG" alt="foto" className="aspect-video object-cover" />
         </CarouselItem>
       </CarouselContent>
       <CarouselPrevious />
