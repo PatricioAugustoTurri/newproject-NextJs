@@ -64,7 +64,15 @@ function NewForm() {
         },
       });
       console.log(data);
-     
+      const res = await fetch("/api/send", {
+        "method": "POST",
+        body: JSON.stringify(values),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      const result = await res.json();
+      console.log(result);
     } catch (error) {
       console.error("Error al enviar el formulario:", error);
     }
