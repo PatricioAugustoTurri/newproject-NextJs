@@ -14,8 +14,8 @@ export async function POST(request: Request) {
   const total = subtotal + 2 + shipping;
   const tax = total * 0.04;
   const session = await stripe.checkout.sessions.create({
-    success_url: "http://localhost:3000/success",
-    cancel_url: "http://localhost:3000/error",
+    success_url: process.env.NEXT_PUBLIC_URL + "/success",
+    cancel_url: process.env.NEXT_PUBLIC_URL + "/error",
     shipping_address_collection: {
       allowed_countries: ["IT"],
     },

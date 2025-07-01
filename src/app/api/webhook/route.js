@@ -24,12 +24,10 @@ export async function POST(request) {
       //enviar mail
       //enviar sms
       //guardar en la base de datos
-      console.log(products);
-      const res = await pool.query(
+      await pool.query(
         "insert into orders (order_id, person, products) values (?, ?, ?)",
         [sessionId, JSON.stringify(sessionCustomer), products]
       );
-      console.log(res);
       break;
     default:
       console.log("No se reconoce el evento");
