@@ -4,13 +4,14 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(request: Request) {
-    console.log(request.body);
+  const body = await request.json();
+  console.log(body);
   try {
     const data = await resend.emails.send({
       from: "Acme <onboarding@resend.dev>",
       to: ["patoturri2391@gmail.com"],
-      subject: "Welcome to my-app",
-      react: EmailTemplate({ firstName: "Patricio" }),
+      subject: body.name + "Te ha mandado una email",
+      react: EmailTemplate(body),
       text: "Welcome to my-app",
     });
 
@@ -29,6 +30,3 @@ export async function POST(request: Request) {
     );
   }
 }
-
-
-// mysql://root:aYSQGrfsUWwyfFmxrYToTceFZrYuCTUo@maglev.proxy.rlwy.net:57290/railway

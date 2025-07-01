@@ -27,7 +27,7 @@ function Navbar() {
               Shop
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid w-[150px] gap-1 text-base">
+              <ul className="grid w-[150px] gap-1 text-base font-bold">
                 <li className="hover:bg-black hover:text-white transition duration-300 ease-in-out p-1 rounded-md">
                   <Link href="/shop">Todos las fotos</Link>
                 </li>

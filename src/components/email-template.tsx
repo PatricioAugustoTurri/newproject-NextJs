@@ -1,15 +1,17 @@
 interface EmailTemplateProps {
-  firstName: string;
+  name: string;
+  message: string;
+  email: string;
 }
 
-export function EmailTemplate({ firstName }: EmailTemplateProps) {
+export function EmailTemplate(prop: EmailTemplateProps) {
+  const { name, message, email } = prop;
   return (
-    <div>
-      <h1>Welcome, {firstName}!</h1>
-      <p>Thanks for signing up!</p>
-      <button>
-        <a href="https://www.example.com">Go to example.com</a>
-      </button>
+    <div className="flex flex-col gap-4">
+      <h1 className="text-4xl font-bold">Hola Pato!!!</h1>
+      <p className="text-xl font-bold">{name} te mando un mensaje</p>
+      <p>Este es su mensaje: {message}</p>
+      <p className="text-xs text-blue-500">Su correo: {email}</p>
     </div>
   );
 }

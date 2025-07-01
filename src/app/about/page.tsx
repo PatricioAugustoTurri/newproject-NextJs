@@ -18,7 +18,7 @@ function AboutPage() {
         alt="foto"
         className="aspect-video object-cover shadow-md rounded-lg mt-8"
       />
-      <p className="mt-16 text-start px-20 text-xl">
+      <p className="md:mt-16 mt-8 text-start px-6 md:px-20 md:text-xl text-base">
         ¡Hola! Soy Pato, fotógrafo con la cámara siempre lista y el pasaporte
         nunca muy lejos. Para mí, la fotografía es una forma de coleccionar
         momentos, de guardar pedacitos del mundo y de las personas que voy

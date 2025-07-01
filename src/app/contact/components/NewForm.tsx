@@ -15,7 +15,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
-
+import { useRouter } from "next/navigation";
 const schema = z.object({
   name: z
     .string({
@@ -43,10 +43,9 @@ const schema = z.object({
       message: "El mensaje no puede tener más de 1000 caracteres",
     }),
 });
-
 type FormType = z.infer<typeof schema>;
-
 function NewForm() {
+  const router = useRouter();
   const form = useForm<FormType>({
     resolver: zodResolver(schema),
     defaultValues: {
@@ -55,7 +54,6 @@ function NewForm() {
       message: "",
     },
   });
-
   const onSubmit = form.handleSubmit(async (values: FormType) => {
     try {
       const { data } = await axios.post("/api/contacts", values, {
@@ -65,14 +63,16 @@ function NewForm() {
       });
       console.log(data);
       const res = await fetch("/api/send", {
-        "method": "POST",
+        method: "POST",
         body: JSON.stringify(values),
         headers: {
           "Content-Type": "application/json",
         },
-      })
+      });
       const result = await res.json();
+      router.push("/contact/thanks");
       console.log(result);
+      form.reset();
     } catch (error) {
       console.error("Error al enviar el formulario:", error);
     }
@@ -140,5 +140,4 @@ function NewForm() {
     </div>
   );
 }
-
 export default NewForm;

@@ -10,22 +10,42 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 function CarouselHome() {
   return (
-    <Carousel className="w-full h-auto" plugins={[Autoplay({ delay: 3000 })]}>
+    <Carousel className="w-auto h-full" plugins={[Autoplay({ delay: 3000 })]}>
       <CarouselContent>
         <CarouselItem>
-          <img src="/11.JPG" alt="foto" className="aspect-video object-cover" />
+          <img
+            src="/mamitas.jpg"
+            alt="foto"
+            className="aspect-video object-cover"
+          />
         </CarouselItem>
         <CarouselItem>
-          <img src="/35.JPG" alt="foto" className="aspect-video object-cover" />
+          <img
+            src="/arrozales.jpg"
+            alt="foto"
+            className="aspect-video object-cover"
+          />
         </CarouselItem>
         <CarouselItem>
-          <img src="/10.JPG" alt="foto" className="aspect-video object-cover" />
+          <img
+            src="/abuela.jpg"
+            alt="foto"
+            className="aspect-video object-cover"
+          />
         </CarouselItem>
         <CarouselItem>
-          <img src="/37.JPG" alt="foto" className="aspect-video object-cover" />
+          <img
+            src="/volcan.jpg"
+            alt="foto"
+            className="aspect-video object-cover"
+          />
         </CarouselItem>
         <CarouselItem>
-          <img src="/3.JPG" alt="foto" className="aspect-video object-cover" />
+          <img
+            src="/monjes.jpg"
+            alt="foto"
+            className="aspect-video object-cover"
+          />
         </CarouselItem>
       </CarouselContent>
       <CarouselPrevious />

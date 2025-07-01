@@ -58,9 +58,22 @@ function NavbarMovil() {
                 size={40}
                 strokeWidth={1}
                 className="cursor-pointer"
-                onClick={()=>{setShopMenuOpen(false)}}
+                onClick={() => {
+                  setShopMenuOpen(false);
+                }}
               />
-              <ul className={`mt-4 space-y-4 ${oi.className} text-base`}>
+              <ul className={`mt-4 space-y-4 text-base font-bold`}>
+                <li>
+                  <Link
+                    href={"/shop"}
+                    onClick={() => {
+                      setShopMenuOpen(false);
+                      setDrawerOpen(false);
+                    }}
+                  >
+                    Todas las fotos
+                  </Link>
+                </li>
                 <li>
                   <Link
                     href="/category/1"
