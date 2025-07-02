@@ -18,7 +18,7 @@ function GetFotos({ fotosFinales }) {
   const { addFavorite } = useFavorites();
   return (
     <div className="flex flex-col gap-10">
-      <h1 className={`${oi.className} text-2xl`}>Todos los productos</h1>
+      <h1 className={`${oi.className} text-2xl`}>Todos las fotos</h1>
       {/* {loading && <div>Cargando...</div>} */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
         {fotosFinales.map((fotos: FotoTypes) => {
@@ -37,7 +37,7 @@ function GetFotos({ fotosFinales }) {
                   <h1>{fotos.name}</h1>
                   <Heart
                     size={25}
-                    className="hover:fill-red-500 transition duration-800 ease-in-out cursor-pointer"
+                    className="hover:fill-black transition duration-800 ease-in-out cursor-pointer"
                     onClick={() => {
                       addFavorite(fotos);
                     }}

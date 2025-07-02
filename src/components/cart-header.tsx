@@ -11,7 +11,7 @@ function Cart() {
   const cantTotal = items.reduce((acc, item) => acc + item.cant, 0);
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center">
       <div className="flex items-center gap-0.5 hover:bg-gray-100 hover:text-gray-700 hover:rounded-full p-2 text-gray-500 hover:shadow-md hover:shadow-black transition-all duration-300 ease-in-out cursor-pointer">
         <ShoppingBasket
           strokeWidth={1}

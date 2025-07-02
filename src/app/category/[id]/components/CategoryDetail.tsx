@@ -25,7 +25,7 @@ function CategoryDetail({ foto }) {
           <h1>{foto.name}</h1>
           <Heart
             size={25}
-            className="hover:fill-red-500 transition duration-800 ease-in-out cursor-pointer"
+            className="hover:fill-black transition duration-800 ease-in-out cursor-pointer"
             onClick={() => {
               addFavorite(foto);
             }}

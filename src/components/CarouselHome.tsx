@@ -42,7 +42,7 @@ function CarouselHome() {
         </CarouselItem>
         <CarouselItem>
           <img
-            src="/monjes.jpg"
+            src="/monje-tren.jpg"
             alt="foto"
             className="aspect-video object-cover"
           />

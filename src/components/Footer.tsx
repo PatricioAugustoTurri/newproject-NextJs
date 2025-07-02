@@ -5,12 +5,12 @@ function Footer() {
   return (
     <div className="max-w-6xl mx-auto px-2 md:px-26 py-4 flex items-center justify-between">
       <div className="flex flex-col">
-        <div className="flex gap-4">
+        <div className="flex gap-4 items-center">
           <Link href="https://www.instagram.com/patoturri/">
             <Instagram size={40} strokeWidth={2} className="cursor-pointer" />
           </Link>
           <Link href="https://www.youtube.com/@pato_turri">
-            <Youtube size={40} strokeWidth={2} className="cursor-pointer" />
+            <Youtube size={54} strokeWidth={2} className="cursor-pointer" />
           </Link>
         </div>
         <h1 className="text-3xl font-bold mt-2">Pato Turri</h1>
