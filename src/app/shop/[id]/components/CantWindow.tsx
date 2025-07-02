@@ -101,8 +101,8 @@ function CantWindow({ fotosDetalles }: Props) {
             size={50}
             strokeWidth={2}
             onClick={() => {
-              if (cant < 10) {
-                setCant(cant + 1);
+              if (cant > 1) {
+                setCant(cant - 1);
               }
             }}
           />
@@ -110,14 +110,14 @@ function CantWindow({ fotosDetalles }: Props) {
             {cant}
           </p>
           <CirclePlus
+            onClick={() => {
+              if (cant < 10) {
+                setCant(cant + 1);
+              }
+            }}
             className="hover:bg-gray-100 hover:text-gray-700 hover:rounded-full p-2 text-gray-500 hover:shadow-md hover:shadow-black transition-all duration-700 ease-in-out cursor-pointer hover:scale-105"
             size={50}
             strokeWidth={2}
-            onClick={() => {
-              if (cant > 1) {
-                setCant(cant - 1);
-              }
-            }}
           />
         </div>
         <Button onClick={() => addCart(cant)}>Agregar al carrito</Button>

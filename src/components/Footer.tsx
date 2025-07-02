@@ -7,10 +7,10 @@ function Footer() {
       <div className="flex flex-col">
         <div className="flex gap-4 items-center">
           <Link href="https://www.instagram.com/patoturri/">
-            <Instagram size={40} strokeWidth={2} className="cursor-pointer" />
+            <Instagram size={40} strokeWidth={4} className="cursor-pointer" />
           </Link>
           <Link href="https://www.youtube.com/@pato_turri">
-            <Youtube size={54} strokeWidth={2} className="cursor-pointer" />
+            <Youtube size={53} strokeWidth={2} className="cursor-pointer" />
           </Link>
         </div>
         <h1 className="text-3xl font-bold mt-2">Pato Turri</h1>
